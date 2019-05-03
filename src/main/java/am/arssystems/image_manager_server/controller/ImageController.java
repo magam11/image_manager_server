@@ -136,7 +136,6 @@ public class ImageController {
         } else {
             result.put("success", false);
             result.put("message", "The maximum amount of storage for your pictures has expired");
-
         }
         return ResponseEntity.ok(result);
     }

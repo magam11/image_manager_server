@@ -38,9 +38,11 @@ public class UserController {
         String phoneNumber = loginDto.getPhoneNumber();
         User currentUser = userRepository.findAllByPhoneNumber(phoneNumber);
         response.setSuccess(false);
+        String s = jwtTokenUtil.generateToken(phoneNumber);
+        System.out.println("ssss "+s);
         if (currentUser != null) {
             response.setSuccess(true);
-            response.setToken(jwtTokenUtil.generateToken(phoneNumber));
+            response.setToken(s);
         }
         return ResponseEntity.ok(response);
     }
